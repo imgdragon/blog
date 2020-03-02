@@ -1,0 +1,32 @@
+spring:
+  thymeleaf:
+    cache: false
+---
+spring:
+  profiles:
+    active: dev
+---
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+---
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+---
+spring:
+  jackson:
+    date-format:  yyyy-MM-dd HH:mm:ss
+---
+server:
+  tomcat:
+    uri-encoding: utf-8
+
+spring:
+  http:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true

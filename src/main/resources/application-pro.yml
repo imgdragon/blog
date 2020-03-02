@@ -1,0 +1,54 @@
+spring:
+  datasource:
+    username: root
+    password: 139555
+    url: jdbc:mysql://127.0.0.1:3306/blog?serverTimezone=GMT%2B8 #&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+#    druid:
+#      domestic1:  #国外1
+#        url: jdbc:mysql://ip?serverTimezone=GMT%2B8
+#        username: username
+#        password: password
+#
+#      domestic2:  #国外2
+#        url: jdbc:mysql://ip?serverTimezone=GMT%2B8
+#        username: username
+#        password: password
+---
+spring:
+  thymeleaf:
+    mode: HTML
+    cache: false
+
+---
+logging:
+  # 配置级别
+  level:
+    #分包配置级别，即不同的目录下可以使用不同的级别
+    com.zyl.springboot: info
+    # 指定输出日志的文件名，默认输出至当前项目目录下
+  file: log/blog-pro.log
+
+---
+server:
+     port: 8081

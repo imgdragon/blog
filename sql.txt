@@ -1,0 +1,53 @@
+CREATE TABLE t_user (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  username varchar(255),
+	password varchar(255),
+	email varchar(255),
+	avatar varchar(255),
+	create_time datetime(6),
+	update_time datetime(6),
+  PRIMARY KEY (`id`)
+)CHARSET=utf8;
+
+CREATE TABLE t_type (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255),
+  PRIMARY KEY (`id`)
+)CHARSET=utf8;
+
+CREATE TABLE t_tag (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255),
+  PRIMARY KEY (`id`)
+)CHARSET=utf8;
+
+CREATE TABLE t_blog (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+	`photo` varchar(255),
+	`title` varchar(255),
+	`comtent` varchar(255),
+	`flag` varchar(255),
+	`opengood` tinyint(1), 
+	`openstatement` tinyint(1),
+	`opencomment` tinyint(1),
+	`recommend` tinyint(1),
+	`create_time` datetime(0),
+	`update_time` datetime(0),
+	`user_id` int(20),
+	`type_id`	int(20),
+	`tags_id` varchar(20),
+   PRIMARY KEY (`id`)
+)CHARSET=utf8;
+
+CREATE TABLE t_comment (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255),
+	`email` varchar(255),
+	`comtent` varchar(255),
+	`avatar` varchar(255),
+	`create_time` datetime(0),
+	`blog_id` int(20),
+	`parent_id` int(20),
+	`son_id` int(20),
+   PRIMARY KEY (`id`)
+)CHARSET=utf8;
